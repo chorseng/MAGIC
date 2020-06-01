@@ -1,0 +1,6 @@
+from lib.valid.intention_valid import intention_valid
+from lib.valid.text_valid import text_valid
+from lib.valid.recommend_valid import recommend_valid
+from lib.valid.knowledge_styletip_valid import knowledge_styletip_valid
+from lib.valid.knowledge_attribute_valid import knowledge_attribute_valid
+from lib.valid.knowledge_celebrity_valid import knowledge_celebrity_valid

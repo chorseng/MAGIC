@@ -1,0 +1,6 @@
+from lib.train.intention_train import intention_train
+from lib.train.recommend_train import recommend_train
+from lib.train.text_train import text_train
+from lib.train.knowledge_styletip_train import knowledge_styletip_train
+from lib.train.knowledge_attribute_train import knowledge_attribute_train
+from lib.train.knowledge_celebrity_train import knowledge_celebrity_train
