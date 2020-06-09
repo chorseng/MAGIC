@@ -9,7 +9,7 @@ from constant import TASK_STR, MODE_STR
 class DatasetConfig():
     """Dataset configurations."""
 
-    data_directory = '/home/data/git/MAGIC/MMD/data'
+    data_directory = '/home/chorseng/git/MAGIC/MMD/data'
     glove_file = join(data_directory, 'glove.txt')
     url2img = join(data_directory, 'url2img.txt')
 
