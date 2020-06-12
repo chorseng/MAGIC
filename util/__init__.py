@@ -168,10 +168,10 @@ def get_mask(length: int, target_length):
 
 
 def masked_softmax(vector: torch.Tensor,
-                   mask: torch.Tensor,
+                   mask: torch.BoolTensor,
                    dim: int = -1,
                    memory_efficient: bool = False,
-                   mask_fill_value: float = -1e32) -> torch.Tensor:
+                   mask_fill_value: float = -1e32) -> torch.BoolTensor:
     """
 
     Source: https://github.com/allenai/allennlp/blob/master/allennlp/nn/util.py
