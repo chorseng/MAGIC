@@ -20,7 +20,7 @@ class DatasetConfig():
 
     knowledge_data_directory = join(data_directory, 'knowledge/')
     product_data_directory = join(knowledge_data_directory,
-                                  'products_format_new/')
+                                  'products_format/')
 
     styletips_data_file = join(knowledge_data_directory,
                                'styletip/styletips_synset.txt')
