@@ -9,7 +9,7 @@ from constant import TASK_STR, MODE_STR
 class DatasetConfig():
     """Dataset configurations."""
 
-    data_directory = '/home/chorseng/data'
+    data_directory = '/home/chorseng/simmc_data'
     glove_file = join(data_directory, 'glove.txt')
     url2img = join(data_directory, 'url2img.txt')
 
