@@ -333,7 +333,7 @@ class RawData():
                                                              utter_dict)
                         dialog.append(utter)
                     else:
-                        text: str = utter_dict.get('utterance').get('nlg')
+                        text: str = utter_dict.get('dialogue').get('transcript')
                         if text is None:
                             text = ''
                         words: List[str] = word_tokenize(text)
