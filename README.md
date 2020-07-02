@@ -1,4 +1,4 @@
-# Adapting MAGIC for SIMMC - test
+# Adapting MAGIC for SIMMC - under development
 
 Official Implementation of "Multimodal Dialog System: Generating Responses via Adaptive Decoders".
 
