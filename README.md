@@ -1,4 +1,4 @@
-# MAGIC
+# Adapting MAGIC for SIMMC
 
 Official Implementation of "Multimodal Dialog System: Generating Responses via Adaptive Decoders".
 
