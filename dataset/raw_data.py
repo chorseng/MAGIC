@@ -377,7 +377,6 @@ class RawData():
             _utter_type: str = 'ASK' #TBC
             _text: str = utter_dict['system_transcript']
         if speaker == user:
-        utter = utter_dict.get('utterance')
             _speaker: str = 'user'
             _utter_type: str = 'ASK' #TBC
             _text: str = utter_dict['transcript']
