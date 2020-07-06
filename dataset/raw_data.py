@@ -328,6 +328,7 @@ class RawData():
                     # Extract useful information
                     dialog = []
                     for utter_dict in dial:
+                    
                         if not get_vocab:
                             utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
@@ -341,7 +342,7 @@ class RawData():
                             words = [word.lower() for word in words]
                             if get_vocab:
                                 word_freq_cnt.update(words)
-                     if not get_vocab:
+                    if not get_vocab:
                         dialogs.append(dialog)
         
         return dialogs
