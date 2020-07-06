@@ -324,11 +324,11 @@ class RawData():
                 except json.decoder.JSONDecodeError:
                     continue
                     
-                for dial_idx in len(dialog_json['dialogue_data']):
+                for dial_idx in range(len(dialog_json['dialogue_data'])):
                     # Extract useful information
                     dialog = []
                     dial = dialog_json['dialogue_data'][dial_idx]['dialogue']
-                    for dial_idx2 in len(dial):
+                    for dial_idx2 in range(len(dial)):
                         dial_data = dial[dial_idx2]
                         utter_dict = dial_data['dialogue']
                         if not get_vocab:
