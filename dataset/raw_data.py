@@ -332,10 +332,16 @@ class RawData():
                         #dial_data = dial[dial_idx2]
                         utter_dict = dial[dial_idx2]#dial_data['dialogue']
                         if not get_vocab:
-                            utter = RawData._get_utter_from_dict(vocab,
+                            sys_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
-                                                                 utter_dict)
-                            dialog.append(utter)
+                                                                 utter_dict,
+                                                                 speaker = sys)
+                            dialog.append(sys_utter)
+                            user_utter = RawData._get_utter_from_dict(vocab,
+                                                                 image_url_id,
+                                                                 utter_dict,
+                                                                 speaker = user)
+                            dialog.append(user_utter)
                         else:
                             text: str = utter_dict.get('transcript')
                             if text is None:
@@ -352,7 +358,8 @@ class RawData():
     @staticmethod
     def _get_utter_from_dict(vocab: Dict[str, int],
                              image_url_id: Dict[str, int],
-                             utter_dict: dict) -> Utterance:
+                             utter_dict: dict,
+                             speaker) -> Utterance:
         """Extract Utterance object from JSON dict.
 
         Args:
@@ -364,13 +371,18 @@ class RawData():
             Utterance: Extracted Utterance.
 
         """
+        
+        if speaker == sys:
+            _speaker: str = 'system'
+            _utter_type: str = 'ASK' #TBC
+            _text: str = utter_dict['system_transcript']
+        if speaker == user:
         utter = utter_dict.get('utterance')
-
-        _speaker: str = utter_dict.get('speaker')
-        _utter_type: str = utter_dict.get('type')
-        _text: str = utter.get('nlg')
-        _pos_images: List[str] = utter.get('images')
-        _neg_images: List[str] = utter.get('false images')
+            _speaker: str = 'user'
+            _utter_type: str = 'ASK' #TBC
+            _text: str = utter_dict['transcript']
+        _pos_images: List[str] = []
+        _neg_images: List[str] = []
 
         # Some attributes may be empty.
         if _text is None:
