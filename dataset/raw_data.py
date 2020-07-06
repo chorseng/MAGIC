@@ -329,8 +329,8 @@ class RawData():
                     dialog = []
                     dial = dialog_json['dialogue_data'][dial_idx]['dialogue']
                     for dial_idx2 in range(len(dial)):
-                        dial_data = dial[dial_idx2]
-                        utter_dict = dial_data['dialogue']
+                        #dial_data = dial[dial_idx2]
+                        utter_dict = dial[dial_idx2]#dial_data['dialogue']
                         if not get_vocab:
                             utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
