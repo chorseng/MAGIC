@@ -335,12 +335,12 @@ class RawData():
                             sys_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
                                                                  utter_dict,
-                                                                 speaker = sys)
+                                                                 speaker = 'sys')
                             dialog.append(sys_utter)
                             user_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
                                                                  utter_dict,
-                                                                 speaker = user)
+                                                                 speaker = 'user')
                             dialog.append(user_utter)
                         else:
                             text: str = utter_dict.get('transcript')
@@ -359,7 +359,7 @@ class RawData():
     def _get_utter_from_dict(vocab: Dict[str, int],
                              image_url_id: Dict[str, int],
                              utter_dict: dict,
-                             speaker) -> Utterance:
+                             speaker: str) -> Utterance:
         """Extract Utterance object from JSON dict.
 
         Args:
@@ -372,11 +372,11 @@ class RawData():
 
         """
         
-        if speaker == sys:
+        if speaker == 'sys':
             _speaker: str = 'system'
             _utter_type: str = 'ASK' #TBC
             _text: str = utter_dict['system_transcript']
-        if speaker == user:
+        if speaker == 'user':
             _speaker: str = 'user'
             _utter_type: str = 'ASK' #TBC
             _text: str = utter_dict['transcript']
