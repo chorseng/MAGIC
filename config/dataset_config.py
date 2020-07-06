@@ -10,7 +10,8 @@ class DatasetConfig():
     """Dataset configurations."""
 
     data_directory = '/home/chorseng/fashion_data'
-    glove_file = join(data_directory, 'glove.txt')
+    #glove_file = join(data_directory, 'glove.txt')
+    glove_file = '/home/chorseng/data/glove.txt')
     url2img = join(data_directory, 'url2img.txt')
 
     dialog_directory = join(data_directory, 'dialogs/')
