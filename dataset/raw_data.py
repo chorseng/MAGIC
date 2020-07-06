@@ -314,34 +314,36 @@ class RawData():
                 full_path = join(dialog_dir, file)
 
                 # Print current progress.
-                if (file_idx + 1) % DIALOG_PROC_PRINT_FREQ == 0:
-                    print('Processing dialog directory: {}/{}'.format(
-                        file_idx + 1, len(files)))
+                #if (file_idx + 1) % DIALOG_PROC_PRINT_FREQ == 0:
+                #    print('Processing dialog directory: {}/{}'.format(
+                #        file_idx + 1, len(files)))
 
                 # Load JSON.
                 try:
                     dialog_json = json.load(open(full_path))
                 except json.decoder.JSONDecodeError:
                     continue
-
-                # Extract useful information.
-                dialog = []
-                for utter_dict in dialog_json:
-                    if not get_vocab:
-                        utter = RawData._get_utter_from_dict(vocab,
-                                                             image_url_id,
-                                                             utter_dict)
-                        dialog.append(utter)
-                    else:
-                        text: str = utter_dict.get('dialogue').get('transcript')
-                        if text is None:
-                            text = ''
-                        words: List[str] = word_tokenize(text)
-                        words = [word.lower() for word in words]
-                        if get_vocab:
-                            word_freq_cnt.update(words)
-                if not get_vocab:
-                    dialogs.append(dialog)
+                    
+                for dial in dialog_json['dialogue_data']:
+                    # Extract useful information
+                    dialog = []
+                    for utter_dict in dial:
+                        if not get_vocab:
+                            utter = RawData._get_utter_from_dict(vocab,
+                                                                 image_url_id,
+                                                                 utter_dict)
+                            dialog.append(utter)
+                        else:
+                            text: str = utter_dict.get('transcript')
+                            if text is None:
+                                text = ''
+                            words: List[str] = word_tokenize(text)
+                            words = [word.lower() for word in words]
+                            if get_vocab:
+                                word_freq_cnt.update(words)
+                     if not get_vocab:
+                        dialogs.append(dialog)
+        
         return dialogs
 
     @staticmethod
