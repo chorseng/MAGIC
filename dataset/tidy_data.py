@@ -171,7 +171,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
             # The other two responses should be in the candidate context.
-            print('length of sys_response = ', len(sys_response))
+            print('length of sys_response = ', len(sys_responses))
             if len(sys_responses) == 3:
                 for idx, response in enumerate(sys_responses):
                     utterances.append(TidyUtterance(response))
