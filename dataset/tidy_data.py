@@ -49,7 +49,6 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
                           DatasetConfig.ordinal_number.items()}
 
     tidy_dialogs: List[TidyDialog] = []
-    print('Dialog length:', len(dialogs))
     for item_idx, dialog in enumerate(dialogs):
         print('Getting items from dialogs {}/{}'.format(
             item_idx + 1, len(dialogs)))
@@ -165,6 +164,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
     context_size = DatasetConfig.dialog_context_size
 
     for utter in dialog:
+        print(utter)
         if utter.speaker == USER_SPEAKER:
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
