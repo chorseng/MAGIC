@@ -200,6 +200,8 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
                 utter_type = None
             else:
                 sys_responses.append(utter)
+        print('Consolidated utterances:')
+        print(utterances)
 
     if len(sys_responses) == 3:
         utterances.append(TidyUtterance(sys_responses[0]))
@@ -279,8 +281,6 @@ def get_recommend_task_items(
                 sys_responses.append(utter)
             else:
                 utterances.append(TidyUtterance(utter))
-        print('Consolidated utterances:")
-        print(utterances)
 
     for response in sys_responses:
         pos_images = get_valid_image(image_paths, response.pos_images)
