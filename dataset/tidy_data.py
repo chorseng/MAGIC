@@ -186,8 +186,10 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
             sys_responses = []
             utterances.append(TidyUtterance(utter))
             utter_type = utter.utter_type
+            print('Utter type is ', utter_type)
         elif utter.speaker == SYS_SPEAKER:
             print('SYS_SPEAKER')
+            print('Utter type is ', utter_type)
             # If the type of last user utterance is in utterance_text_types
             # then it's also a simple response
             if utter_type in DatasetConfig.utterance_text_types or \
