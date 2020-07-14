@@ -60,7 +60,6 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
             tidy_dialogs.extend(get_intention_task_items(std_dialog))
         elif task == TEXT_TASK:
             tidy_dialogs.extend(get_text_task_items(dialog))
-            print(get_text_task_items(dialog))
         elif task == RECOMMEND_TASK:
             tidy_dialogs.extend(get_recommend_task_items(raw_data.image_paths,
                                                          dialog))
@@ -167,11 +166,12 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
 
     for utter in dialog:
         print(utter)
-        print(utter.speaker)
         if utter.speaker == USER_SPEAKER:
+            print('USER_SPEAKER')
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
             # The other two responses should be in the candidate context.
+            print('length of sys_response = ', len(sys_response))
             if len(sys_responses) == 3:
                 for idx, response in enumerate(sys_responses):
                     utterances.append(TidyUtterance(response))
@@ -187,6 +187,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
             utterances.append(TidyUtterance(utter))
             utter_type = utter.utter_type
         elif utter.speaker == SYS_SPEAKER:
+            print('SYS_SPEAKER')
             # If the type of last user utterance is in utterance_text_types
             # then it's also a simple response
             if utter_type in DatasetConfig.utterance_text_types or \
