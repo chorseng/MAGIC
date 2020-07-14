@@ -49,6 +49,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
                           DatasetConfig.ordinal_number.items()}
 
     tidy_dialogs: List[TidyDialog] = []
+    print('Dialog length:', len(dialogs))
     for item_idx, dialog in enumerate(dialogs):
         print('Getting items from dialogs {}/{}'.format(
             item_idx + 1, len(dialogs)))
