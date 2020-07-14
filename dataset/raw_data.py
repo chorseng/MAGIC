@@ -332,16 +332,16 @@ class RawData():
                         #dial_data = dial[dial_idx2]
                         utter_dict = dial[dial_idx2]#dial_data['dialogue']
                         if not get_vocab:
-                            sys_utter = RawData._get_utter_from_dict(vocab,
-                                                                 image_url_id,
-                                                                 utter_dict,
-                                                                 speaker = 'sys')
-                            dialog.append(sys_utter)
                             user_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
                                                                  utter_dict,
                                                                  speaker = 'user')
                             dialog.append(user_utter)
+                            sys_utter = RawData._get_utter_from_dict(vocab,
+                                                                 image_url_id,
+                                                                 utter_dict,
+                                                                 speaker = 'sys')
+                            dialog.append(sys_utter)
                         else:
                             text: str = utter_dict.get('transcript')
                             if text is None:
