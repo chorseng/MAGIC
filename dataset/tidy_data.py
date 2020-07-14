@@ -60,6 +60,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
             tidy_dialogs.extend(get_intention_task_items(std_dialog))
         elif task == TEXT_TASK:
             tidy_dialogs.extend(get_text_task_items(dialog))
+            print(get_text_task_items(dialog))
         elif task == RECOMMEND_TASK:
             tidy_dialogs.extend(get_recommend_task_items(raw_data.image_paths,
                                                          dialog))
