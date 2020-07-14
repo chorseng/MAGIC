@@ -200,8 +200,8 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
                 utter_type = None
             else:
                 sys_responses.append(utter)
-        print('Consolidated utterances:')
-        print(utterances)
+    print('Consolidated utterances:')
+    print(utterances)
 
     if len(sys_responses) == 3:
         utterances.append(TidyUtterance(sys_responses[0]))
