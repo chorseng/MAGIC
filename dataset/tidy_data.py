@@ -165,6 +165,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
 
     for utter in dialog:
         print(utter)
+        print(utter.speaker)
         if utter.speaker == USER_SPEAKER:
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
