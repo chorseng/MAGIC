@@ -279,6 +279,8 @@ def get_recommend_task_items(
                 sys_responses.append(utter)
             else:
                 utterances.append(TidyUtterance(utter))
+        print('Consolidated utterances:")
+        print(utterances)
 
     for response in sys_responses:
         pos_images = get_valid_image(image_paths, response.pos_images)
