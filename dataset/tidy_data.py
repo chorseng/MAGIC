@@ -192,8 +192,8 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
             print('Utter type is ', utter_type)
             # If the type of last user utterance is in utterance_text_types
             # then it's also a simple response
-            if utter_type in DatasetConfig.utterance_text_types or \
-                    utter_type in DatasetConfig.utterance_text_recommend_types:
+            if utter_type in DatasetConfig.utterance_text_types# or \
+                    #utter_type in DatasetConfig.utterance_text_recommend_types:
                 utterances.append(TidyUtterance(utter))
                 utterances = utterances[-(context_size + 1):]
                 dialogs.append(copy.copy(utterances))
