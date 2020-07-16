@@ -103,37 +103,64 @@ class DatasetConfig():
     pos_images_max_num = 1
     neg_images_max_num = 4
 
-    utterance_type_size = 18
+    utterance_type_size = 46
     utterance_type_dict = {
-        'unknown': 0,
-        'ask_attribute': 1,
-        'buy': 2,
-        'celebrity': 3,
-        'do_not_like_earlier_show_result': 4,
-        'do_not_like_n_show_result': 4,
-        'do_not_like_show_result': 4,
-        'exit-message': 5,
-        'filter_results': 6,
-        'give-criteria': 7,
-        'give-part-criteria': 8,
-        'go_with': 9,
-        'greeting': 10,
-        'like_earlier_show_result': 11,
-        'like_n_show_result': 11,
-        'like_show_result': 11,
-        'show_orientation': 12,
-        'show_similar_to': 13,
-        'sort_results': 14,
-        'suited_for': 15,
-        'switch-synset': 16,
-        'user-info': 17
+        'ERR': 0,
+        'DA:ASK:ADD_TO_CART': 1,
+        'DA:ASK:CHECK': 2,
+        'DA:ASK:COMPARE': 3,
+        'DA:ASK:COUNT': 4,
+        'DA:ASK:DISPREFER': 5,
+        'DA:ASK:GET': 6,
+        'DA:ASK:PREFER': 7,
+        'DA:ASK:REFINE': 8,
+        'DA:ASK:ROTATE': 9,
+        'DA:CONFIRM:ADD_TO_CART': 10,
+        'DA:CONFIRM:CHECK': 11,
+        'DA:CONFIRM:COMPARE': 12,
+        'DA:CONFIRM:COUNT': 13,
+        'DA:CONFIRM:DISPREFER': 14,
+        'DA:CONFIRM:GET': 15,
+        'DA:CONFIRM:PREFER': 16,
+        'DA:CONFIRM:REFINE': 17,
+        'DA:CONFIRM:ROTATE': 18,
+        'DA:INFORM:ADD_TO_CART': 19,
+        'DA:INFORM:CHECK': 20,
+        'DA:INFORM:COMPARE': 21,
+        'DA:INFORM:COUNT': 22,
+        'DA:INFORM:DISPREFER': 23,
+        'DA:INFORM:GET': 24,
+        'DA:INFORM:PREFER': 25,
+        'DA:INFORM:REFINE': 26,
+        'DA:INFORM:ROTATE': 27,
+        'DA:PROMPT:ADD_TO_CART': 28,
+        'DA:PROMPT:CHECK': 29,
+        'DA:PROMPT:COMPARE': 30,
+        'DA:PROMPT:COUNT': 31,
+        'DA:PROMPT:DISPREFER': 32,
+        'DA:PROMPT:GET': 33,
+        'DA:PROMPT:PREFER': 34,
+        'DA:PROMPT:REFINE': 35,
+        'DA:REQUEST:ROTATE': 36,
+        'DA:REQUEST:ADD_TO_CART': 37,
+        'DA:REQUEST:CHECK': 38,
+        'DA:REQUEST:COMPARE': 39,
+        'DA:REQUEST:COUNT': 40,
+        'DA:REQUEST:DISPREFER': 41,
+        'DA:REQUEST:GET': 42,
+        'DA:REQUEST:PREFER': 43,
+        'DA:REQUEST:REFINE': 44,
+        'DA:REQUEST:ROTATE': 45,
     }
-    utterance_text_types = {2, 5, 8, 10}
-    utterance_text_recommend_types = {7, 12, 13}
-    utterance_recommend_types = {4, 7, 11, 12, 13}
-    utterance_knowledge_styletip_types = {9}
-    utterance_knowledge_celebrity_types = {3}
-    utterance_knowledge_attribute_types = {1, 15}
+    utterance_text_types = {0}
+    #utterance_text_recommend_types = {7, 12, 13}
+    #utterance_recommend_types = {4, 7, 11, 12, 13}
+    #utterance_knowledge_styletip_types = {9}
+    #utterance_knowledge_celebrity_types = {3}
+    utterance_knowledge_attribute_types = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+                                          16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
+                                          29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
+                                          42, 43, 44, 45}
 
     image_size = 64
 
