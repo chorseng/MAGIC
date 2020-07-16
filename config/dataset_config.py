@@ -107,7 +107,7 @@ class DatasetConfig():
     utterance_type_dict = {
         'ERR': 0,
         'DA': 1
-        '''
+        """
         'DA:ASK:ADD_TO_CART': 1,
         'DA:ASK:CHECK': 2,
         'DA:ASK:COMPARE': 3,
@@ -153,7 +153,7 @@ class DatasetConfig():
         'DA:REQUEST:PREFER': 43,
         'DA:REQUEST:REFINE': 44,
         'DA:REQUEST:ROTATE': 45,
-        '''
+        """
     }
     utterance_text_types = {0}
     #utterance_text_recommend_types = {7, 12, 13}
