@@ -108,8 +108,8 @@ class DatasetConfig():
         'ERR': 0,
         'DA': 1
         """
-        'DA:ASK:ADD_TO_CART': 1,
-        'DA:ASK:CHECK': 2,
+        'DA:ASK:ADD_TO_CART': 1, \
+        'DA:ASK:CHECK': 2, 
         'DA:ASK:COMPARE': 3,
         'DA:ASK:COUNT': 4,
         'DA:ASK:DISPREFER': 5,
