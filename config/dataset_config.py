@@ -106,6 +106,8 @@ class DatasetConfig():
     utterance_type_size = 46
     utterance_type_dict = {
         'ERR': 0,
+        'DA': 1
+        '''
         'DA:ASK:ADD_TO_CART': 1,
         'DA:ASK:CHECK': 2,
         'DA:ASK:COMPARE': 3,
@@ -151,13 +153,15 @@ class DatasetConfig():
         'DA:REQUEST:PREFER': 43,
         'DA:REQUEST:REFINE': 44,
         'DA:REQUEST:ROTATE': 45,
+        '''
     }
     utterance_text_types = {0}
     #utterance_text_recommend_types = {7, 12, 13}
     #utterance_recommend_types = {4, 7, 11, 12, 13}
     #utterance_knowledge_styletip_types = {9}
     #utterance_knowledge_celebrity_types = {3}
-    utterance_knowledge_attribute_types = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
+    utterance_knowledge_attribute_types = {1}
+    #utterance_knowledge_attribute_types = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15,
                                           16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28,
                                           29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41,
                                           42, 43, 44, 45}
