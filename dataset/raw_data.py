@@ -374,11 +374,11 @@ class RawData():
         
         if speaker == 'sys':
             _speaker: str = 'system'
-            _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated'))[0]['intent].split(':'))[0]
+            _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated'))[0]['intent].split(':')[0]
             _text: str = utter_dict['system_transcript']
         if speaker == 'user':
             _speaker: str = 'user'
-            _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated'))[0]['intent].split(':'))[0]
+            _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated'))[0]['intent].split(':')[0]
             _text: str = utter_dict['transcript']
         _pos_images: List[str] = []
         _neg_images: List[str] = []
