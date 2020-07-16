@@ -108,7 +108,6 @@ class DatasetConfig():
         'ERR': 0,
         'DA': 1
     }
-        """
         #'DA:ASK:ADD_TO_CART': 1, 
         #'DA:ASK:CHECK': 2, 
         #'DA:ASK:COMPARE': 3,
