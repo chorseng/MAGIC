@@ -153,7 +153,7 @@ class DatasetConfig():
         #'DA:REQUEST:PREFER': 43,
         #'DA:REQUEST:REFINE': 44,
         #'DA:REQUEST:ROTATE': 45,
-        #"""
+        #
     }
     utterance_text_types = {0}
     #utterance_text_recommend_types = {7, 12, 13}
