@@ -98,7 +98,7 @@ def text_train(
 
     for epoch_id in range(epoch_id, TextTrainConfig.num_iterations):
         for batch_id, train_data in enumerate(train_data_loader):
-            print("Epoch: ", str(epoch_id), " , batch: ", " str(batch_id))
+            print("Epoch: ", str(epoch_id), " , batch: ", str(batch_id))
             # Set gradients to 0.
             optimizer.zero_grad()
 
