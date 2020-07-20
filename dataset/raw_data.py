@@ -344,13 +344,15 @@ class RawData():
                                                                  speaker = 'sys')
                             dialog.append(sys_utter)
                         else:
-                            text: str = utter_dict.get('transcript')
-                            if text is None:
-                                text = ''
-                            words: List[str] = word_tokenize(text)
-                            words = [word.lower() for word in words]
-                            if get_vocab:
-                                word_freq_cnt.update(words)
+                            print("Collecting vocab from dialogues...")
+                            for transcript in ["transcript", 'system_transcript']:
+                                text: str = utter_dict.get('transcript')
+                                if text is None:
+                                    text = ''
+                                words: List[str] = word_tokenize(text)
+                                words = [word.lower() for word in words]
+                                if get_vocab:
+                                    word_freq_cnt.update(words)
                     if not get_vocab:
                         dialogs.append(dialog)
         
