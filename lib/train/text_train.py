@@ -98,7 +98,8 @@ def text_train(
 
     for epoch_id in range(epoch_id, TextTrainConfig.num_iterations):
         for batch_id, train_data in enumerate(train_data_loader):
-            print("Epoch: ", str(epoch_id), " , batch: ", str(batch_id))
+            for turns in range(50):
+                print("Epoch: ", str(epoch_id), " , batch: ", str(batch_id))
             # Set gradients to 0.
             optimizer.zero_grad()
 
@@ -166,7 +167,12 @@ def text_train(
                                         text_decoder_config.text_length)
                 cur_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 print('valid_loss: {} \ttime: {}'.format(valid_loss, cur_time))
-
+                
+                for turns2 in range(30):
+                    print('Validating now...')
+                for turns3 in range(50):
+                    print('Valid loss: ', valid_loss, ' min_valid_loss: ', min_valid_loss)
+                
                 # Save current best model.
                 if min_valid_loss is None or valid_loss < min_valid_loss:
                     min_valid_loss = valid_loss
