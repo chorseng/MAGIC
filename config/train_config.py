@@ -16,7 +16,7 @@ class IntentionTrainConfig(TrainConfig):
     num_iterations = 10000
     learning_rate = 0.0001
     print_freq = 100
-    valid_freq = 1000
+    valid_freq = 100
     patience = 5
     num_data_loader_workers = 5
 
@@ -26,7 +26,7 @@ class TextTrainConfig(TrainConfig):
     num_iterations = 10000
     learning_rate = 0.0001
     print_freq = 100
-    valid_freq = 1000
+    valid_freq = 100
     patience = 20
     num_data_loader_workers = 5
 
@@ -36,7 +36,7 @@ class RecommendTrainConfig(TrainConfig):
     num_iterations = 10000
     learning_rate = 0.0001
     print_freq = 100
-    valid_freq = 1000
+    valid_freq = 100
     patience = 5
     num_data_loader_workers = 5
 
@@ -46,7 +46,7 @@ class KnowledgeStyletipTrainConfig(TrainConfig):
     num_iterations = 10000
     learning_rate = 0.00004
     print_freq = 100
-    valid_freq = 1000
+    valid_freq = 100
     patience = 20
     num_data_loader_workers = 5
 
@@ -56,7 +56,7 @@ class KnowledgeAttributeTrainConfig(TrainConfig):
     num_iterations = 10000
     learning_rate = 0.0004
     print_freq = 100
-    valid_freq = 1000
+    valid_freq = 100
     patience = 20
     num_data_loader_workers = 5
 
@@ -66,6 +66,6 @@ class KnowledgeCelebrityTrainConfig(TrainConfig):
     num_iterations = 10000
     learning_rate = 0.0004
     print_freq = 100
-    valid_freq = 1000
+    valid_freq = 100
     patience = 20
     num_data_loader_workers = 5
