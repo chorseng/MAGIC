@@ -168,10 +168,10 @@ def text_train(
                 cur_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
                 print('valid_loss: {} \ttime: {}'.format(valid_loss, cur_time))
                 
-                for turns2 in range(300):
-                    print('Validating now...')
-                for turns3 in range(300):
-                    print('Valid loss: ', valid_loss, ' min_valid_loss: ', min_valid_loss)
+                #for turns2 in range(300):
+                #    print('Validating now...')
+                #for turns3 in range(300):
+                #    print('Valid loss: ', valid_loss, ' min_valid_loss: ', min_valid_loss)
                 
                 # Save current best model.
                 if min_valid_loss is None or valid_loss < min_valid_loss:
