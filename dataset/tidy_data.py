@@ -44,9 +44,9 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
         dialogs = raw_data.test_dialogs
     assert dialogs is not None
 
-    if task & KNOWLEDGE_TASK:
-        ordinal_number = {raw_data.dialog_vocab[key]: value for key, value in
-                          DatasetConfig.ordinal_number.items()}
+    #if task & KNOWLEDGE_TASK:
+    #    ordinal_number = {raw_data.dialog_vocab[key]: value for key, value in
+    #                      DatasetConfig.ordinal_number.items()}
 
     tidy_dialogs: List[TidyDialog] = []
     for item_idx, dialog in enumerate(dialogs):
@@ -68,7 +68,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
                                         KNOWLEDGE_STYLETIP_SUBTASK)
             tidy_dialogs.extend(items)
         elif task == KNOWLEDGE_ATTRIBUTE_SUBTASK:
-            items = get_knowledge_items(dialog, ordinal_number,
+            items = get_knowledge_items(dialog, #ordinal_number,
                                         KNOWLEDGE_ATTRIBUTE_SUBTASK)
             tidy_dialogs.extend(items)
         elif task == KNOWLEDGE_CELEBRITY_SUBTASK:
@@ -314,7 +314,7 @@ def get_products(order_words, text, products):
     return result
 
 
-def get_knowledge_items(dialog: Dialog, ordinal_number: Dict[int, int],
+def get_knowledge_items(dialog: Dialog, #ordinal_number: Dict[int, int],
                         task: int) -> List[TidyDialog]:
     """Get items for knowledge task from a single dialog.
 
