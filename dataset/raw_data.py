@@ -332,15 +332,18 @@ class RawData():
                     for dial_idx2 in range(len(dial)):
                         #dial_data = dial[dial_idx2]
                         utter_dict = dial[dial_idx2]#dial_data['dialogue']
+                        utter_coref = dialog_json['dialogue_data][dial_idx]['dialogue_coref_map']
                         if not get_vocab:
                             user_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
                                                                  utter_dict,
+                                                                 utter_coref
                                                                  speaker = 'user')
                             dialog.append(user_utter)
                             sys_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
                                                                  utter_dict,
+                                                                 utter_coref,
                                                                  speaker = 'sys')
                             dialog.append(sys_utter)
                         else:
@@ -363,6 +366,7 @@ class RawData():
     def _get_utter_from_dict(vocab: Dict[str, int],
                              image_url_id: Dict[str, int],
                              utter_dict: dict,
+                             utter_coref: dict,
                              speaker: str) -> Utterance:
         """Extract Utterance object from JSON dict.
 
@@ -370,6 +374,7 @@ class RawData():
             vocab (Dict[str, int]): Vocabulary.
             image_url_id (Dict[str, int]): Image URL to index.
             utter_dict (dict): JSON dict.
+            utter_coref (dict): JSON dict.
 
         Returns:
             Utterance: Extracted Utterance.
@@ -384,7 +389,7 @@ class RawData():
             _speaker: str = 'user'
             _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated')))[0]['intent'].split(':')[0]
             _text: str = utter_dict['transcript']
-        _pos_images: List[str] = []
+        _pos_images: List[str] = list(utter_coref_map.keys())
         _neg_images: List[str] = []
 
         # Some attributes may be empty.
@@ -416,8 +421,9 @@ class RawData():
         text: List[int] = [vocab.get(word.lower(), UNK_ID) for word in words]
 
         # Images
-        pos_images: List[int] = [image_url_id.get(img, 0)
-                                 for img in _pos_images]
+        #pos_images: List[int] = [image_url_id.get(img, 0)
+        #                         for img in _pos_images]
+        pos_images: List[str] = _pos_images
         neg_images: List[int] = [image_url_id.get(img, 0)
                                  for img in _neg_images]
 
