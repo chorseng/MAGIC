@@ -296,7 +296,6 @@ def get_recommend_task_items(
         pos_images = response.pos_images
         if pos_images:
             response.pos_images = pos_images
-            response.neg_images = neg_images
             utterances.append(TidyUtterance(response))
             utterances = utterances[-(context_size + 1):]
             dialogs.append(copy.copy(utterances))
