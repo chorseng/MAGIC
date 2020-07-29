@@ -77,8 +77,8 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
             tidy_dialogs.extend(items)
 
     # Save as pickle file.
-    print('Not saving for now')
-    #save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
+    #print('Not saving for now')
+    save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
 
 
 def standardized_dialog(dialog: Dialog) -> Dialog:
