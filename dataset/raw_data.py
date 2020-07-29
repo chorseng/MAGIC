@@ -337,7 +337,7 @@ class RawData():
                             user_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
                                                                  utter_dict,
-                                                                 utter_coref
+                                                                 utter_coref,
                                                                  speaker = 'user')
                             dialog.append(user_utter)
                             sys_utter = RawData._get_utter_from_dict(vocab,
