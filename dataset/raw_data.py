@@ -389,7 +389,7 @@ class RawData():
             _speaker: str = 'user'
             _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated')))[0]['intent'].split(':')[0]
             _text: str = utter_dict['transcript']
-        _pos_images: List[str] = list(utter_coref_map.keys())
+        _pos_images: List[str] = list(utter_coref.keys())
         _neg_images: List[str] = []
 
         # Some attributes may be empty.
