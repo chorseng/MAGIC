@@ -77,8 +77,8 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
             tidy_dialogs.extend(items)
 
     # Save as pickle file.
-    #print('Not saving for now')
-    save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
+    print('Not saving for now')
+    #save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
 
 
 def standardized_dialog(dialog: Dialog) -> Dialog:
@@ -259,18 +259,24 @@ def get_recommend_task_items(
         if utter.speaker == USER_SPEAKER:
             selected_idx = -1
             for idx, response in enumerate(sys_responses):
-                pos_images = get_valid_image(image_paths, response.pos_images)
+                #pos_images = get_valid_image(image_paths, response.pos_images)
+                pos_images = response.pos_images
                 if pos_images:
-                    neg_images = get_valid_image(image_paths,
-                                                 response.neg_images)
-                    if neg_images:
-                        response.pos_images = pos_images
-                        response.neg_images = neg_images
-                        utterances.append(TidyUtterance(response))
-                        utterances = utterances[-(context_size + 1):]
-                        dialogs.append(copy.copy(utterances))
-                        selected_idx = idx
-                        break
+                    utterances.append(TidyUtterance(response))
+                    utterances = utterances[-(context_size + 1):]
+                    dialogs.append(copy.copy(utterances))
+                    selected_idx = idx
+                    break
+                    #neg_images = get_valid_image(image_paths,
+                    #                            response.neg_images)
+                    #if neg_images:
+                    #    response.pos_images = pos_images
+                    #    response.neg_images = neg_images
+                    #    utterances.append(TidyUtterance(response))
+                    #    utterances = utterances[-(context_size + 1):]
+                    #    dialogs.append(copy.copy(utterances))
+                    #    selected_idx = idx
+                    #    break
             for response in sys_responses[selected_idx + 1:]:
                 utterances.append(TidyUtterance(response))
             sys_responses = []
@@ -281,18 +287,29 @@ def get_recommend_task_items(
                 sys_responses.append(utter)
             else:
                 utterances.append(TidyUtterance(utter))
-
+    
+    print('Consolidated utterances:')
+    print(utterances)
+    
     for response in sys_responses:
-        pos_images = get_valid_image(image_paths, response.pos_images)
+        #pos_images = get_valid_image(image_paths, response.pos_images)
+        pos_images = response.pos_images
         if pos_images:
-            neg_images = get_valid_image(image_paths, response.neg_images)
-            if neg_images:
-                response.pos_images = pos_images
-                response.neg_images = neg_images
-                utterances.append(TidyUtterance(response))
-                utterances = utterances[-(context_size + 1):]
-                dialogs.append(copy.copy(utterances))
-                break
+            response.pos_images = pos_images
+            response.neg_images = neg_images
+            utterances.append(TidyUtterance(response))
+            utterances = utterances[-(context_size + 1):]
+            dialogs.append(copy.copy(utterances))
+            break
+            
+        #    neg_images = get_valid_image(image_paths, response.neg_images)
+        #    if neg_images:
+        #        response.pos_images = pos_images
+        #        response.neg_images = neg_images
+        #        utterances.append(TidyUtterance(response))
+        #        utterances = utterances[-(context_size + 1):]
+        #        dialogs.append(copy.copy(utterances))
+        #        break
 
     return dialogs
 
