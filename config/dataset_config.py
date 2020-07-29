@@ -155,8 +155,8 @@ class DatasetConfig():
         #'DA:REQUEST:ROTATE': 45,
     # }
     utterance_text_types = {0}
-    #utterance_text_recommend_types = {7, 12, 13}
-    #utterance_recommend_types = {4, 7, 11, 12, 13}
+    utterance_text_recommend_types = {1} #{7, 12, 13}
+    utterance_recommend_types = {1} #{4, 7, 11, 12, 13}
     #utterance_knowledge_styletip_types = {9}
     #utterance_knowledge_celebrity_types = {3}
     utterance_knowledge_attribute_types = {1}
