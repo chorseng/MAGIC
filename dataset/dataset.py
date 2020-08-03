@@ -10,9 +10,7 @@ from torch.utils import data
 
 from config import DatasetConfig
 from constant import INTENTION_TASK, TEXT_TASK, RECOMMEND_TASK
-from constant import KNOWLEDGE_ATTRIBUTE_SUBTASK
-from constant import KNOWLEDGE_CELEBRITY_SUBTASK
-from constant import KNOWLEDGE_STYLETIP_SUBTASK
+from constant import KNOWLEDGE_TASK
 from constant import UNK_ID, PAD_ID, EOS_ID
 from dataset.tidy_data import TidyDialog
 from util import pad_or_clip_text, get_product_path
