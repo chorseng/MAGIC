@@ -166,7 +166,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
     context_size = DatasetConfig.dialog_context_size
 
     for utter in dialog:
-        print(utter.speaker, len(sys_response))
+        print(utter.speaker, len(sys_responses))
         if utter.speaker == USER_SPEAKER:
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
