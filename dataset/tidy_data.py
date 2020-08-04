@@ -52,7 +52,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
     for item_idx, dialog in enumerate(dialogs):
         print('Getting items from dialogs {}/{}'.format(
             item_idx + 1, len(dialogs)))
-
+        print(dialog)
         # Get items according to different TASKS.
         if task == INTENTION_TASK:
             # Standardize dialog first.
