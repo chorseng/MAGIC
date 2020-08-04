@@ -1,10 +1,12 @@
 #!/usr/bin/env bash
 
 echo "Concatenating files..."
-cat text.out knowledge_styletip.out knowledge_attribute.out knowledge_celebrity.out > all_text.out
+#cat text.out knowledge_styletip.out knowledge_attribute.out knowledge_celebrity.out > all_text.out
+cat text.out > all_text.out
 
 echo "Spliting files..."
 python tools/split.py all_text.out
+
 
 echo "Converting xml..."
 python tools/convert.py src text true pred all_text.out.true
