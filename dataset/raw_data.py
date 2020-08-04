@@ -306,7 +306,7 @@ class RawData():
         print('Processing dialog directory {}...'.format(dialog_dir))
         files = listdir(dialog_dir)
 
-        # Useless if word_freq_cnt is not None.
+         # Useless if word_freq_cnt is not None.
         dialogs: List[Dialog] = []
 
         for file_idx, file in enumerate(files):
@@ -314,40 +314,59 @@ class RawData():
                 full_path = join(dialog_dir, file)
 
                 # Print current progress.
-                if (file_idx + 1) % DIALOG_PROC_PRINT_FREQ == 0:
-                    print('Processing dialog directory: {}/{}'.format(
-                        file_idx + 1, len(files)))
+                #if (file_idx + 1) % DIALOG_PROC_PRINT_FREQ == 0:
+                #    print('Processing dialog directory: {}/{}'.format(
+                #        file_idx + 1, len(files)))
 
                 # Load JSON.
                 try:
                     dialog_json = json.load(open(full_path))
                 except json.decoder.JSONDecodeError:
                     continue
-
-                # Extract useful information.
-                dialog = []
-                for utter_dict in dialog_json:
+                    
+                for dial_idx in range(len(dialog_json['dialogue_data'])):
+                    # Extract useful information
+                    dialog = []
+                    dial = dialog_json['dialogue_data'][dial_idx]['dialogue']
+                    for dial_idx2 in range(len(dial)):
+                        #dial_data = dial[dial_idx2]
+                        utter_dict = dial[dial_idx2]#dial_data['dialogue']
+                        utter_coref = dialog_json['dialogue_data'][dial_idx]['dialogue_coref_map']
+                        if not get_vocab:
+                            user_utter = RawData._get_utter_from_dict(vocab,
+                                                                 image_url_id,
+                                                                 utter_dict,
+                                                                 utter_coref,
+                                                                 speaker = 'user')
+                            dialog.append(user_utter)
+                            sys_utter = RawData._get_utter_from_dict(vocab,
+                                                                 image_url_id,
+                                                                 utter_dict,
+                                                                 utter_coref,
+                                                                 speaker = 'sys')
+                            dialog.append(sys_utter)
+                        else:
+                            # Collect vocab from system transcript and user transcript
+                            print("Collecting vocab from dialogues...")
+                            for transcript_source in ["transcript", 'system_transcript']:
+                                text: str = utter_dict.get(transcript_source)
+                                if text is None:
+                                    text = ''
+                                words: List[str] = word_tokenize(text)
+                                words = [word.lower() for word in words]
+                                if get_vocab:
+                                    word_freq_cnt.update(words)
                     if not get_vocab:
-                        utter = RawData._get_utter_from_dict(vocab,
-                                                             image_url_id,
-                                                             utter_dict)
-                        dialog.append(utter)
-                    else:
-                        text: str = utter_dict.get('utterance').get('nlg')
-                        if text is None:
-                            text = ''
-                        words: List[str] = word_tokenize(text)
-                        words = [word.lower() for word in words]
-                        if get_vocab:
-                            word_freq_cnt.update(words)
-                if not get_vocab:
-                    dialogs.append(dialog)
+                        dialogs.append(dialog)
+        
         return dialogs
 
     @staticmethod
     def _get_utter_from_dict(vocab: Dict[str, int],
                              image_url_id: Dict[str, int],
-                             utter_dict: dict) -> Utterance:
+                             utter_dict: dict,
+                             utter_coref: dict,
+                             speaker: str) -> Utterance:
         """Extract Utterance object from JSON dict.
 
         Args:
@@ -359,13 +378,16 @@ class RawData():
             Utterance: Extracted Utterance.
 
         """
-        utter = utter_dict.get('utterance')
-
-        _speaker: str = utter_dict.get('speaker')
-        _utter_type: str = utter_dict.get('type')
-        _text: str = utter.get('nlg')
-        _pos_images: List[str] = utter.get('images')
-        _neg_images: List[str] = utter.get('false images')
+        if speaker == 'sys':
+            _speaker: str = 'system'
+            _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated')))[0]['intent'].split(':')[0]
+            _text: str = utter_dict['system_transcript']
+        if speaker == 'user':
+            _speaker: str = 'user'
+            _utter_type: str = (ast.literal_eval(utter_dict.get('system_transcript_annotated')))[0]['intent'].split(':')[0]
+            _text: str = utter_dict['transcript']
+        _pos_images: List[str] = [] #list(utter_coref.keys())
+        _neg_images: List[str] = []
 
         # Some attributes may be empty.
         if _text is None:
@@ -396,8 +418,9 @@ class RawData():
         text: List[int] = [vocab.get(word.lower(), UNK_ID) for word in words]
 
         # Images
-        pos_images: List[int] = [image_url_id.get(img, 0)
-                                 for img in _pos_images]
+        #pos_images: List[int] = [image_url_id.get(img, 0)
+        #                         for img in _pos_images]
+        pos_images: List[str] = _pos_images
         neg_images: List[int] = [image_url_id.get(img, 0)
                                  for img in _neg_images]
 
