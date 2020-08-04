@@ -332,18 +332,16 @@ class RawData():
                     for dial_idx2 in range(len(dial)):
                         #dial_data = dial[dial_idx2]
                         utter_dict = dial[dial_idx2]#dial_data['dialogue']
-                        utter_coref = dialog_json['dialogue_data'][dial_idx]['dialogue_coref_map']
+                        #utter_coref = dialog_json['dialogue_data'][dial_idx]['dialogue_coref_map']
                         if not get_vocab:
                             user_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
-                                                                 utter_dict,
-                                                                 utter_coref,
+                                                                 utter_dict, #utter_coref
                                                                  speaker = 'user')
                             dialog.append(user_utter)
                             sys_utter = RawData._get_utter_from_dict(vocab,
                                                                  image_url_id,
-                                                                 utter_dict,
-                                                                 utter_coref,
+                                                                 utter_dict, #utter_coref,                                                                 
                                                                  speaker = 'sys')
                             dialog.append(sys_utter)
                         else:
@@ -365,8 +363,7 @@ class RawData():
     @staticmethod
     def _get_utter_from_dict(vocab: Dict[str, int],
                              image_url_id: Dict[str, int],
-                             utter_dict: dict,
-                             utter_coref: dict,
+                             utter_dict: dict, #utter_coref: dict,                             
                              speaker: str) -> Utterance:
         """Extract Utterance object from JSON dict.
 
