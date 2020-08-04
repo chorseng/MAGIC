@@ -1,6 +1,7 @@
 """Raw data module."""
 import copy
 import json
+import ast
 from collections import Counter, namedtuple
 from os import listdir
 from os.path import isfile, isdir, join
