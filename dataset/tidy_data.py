@@ -52,7 +52,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
     for item_idx, dialog in enumerate(dialogs):
         print('Getting items from dialogs {}/{}'.format(
             item_idx + 1, len(dialogs)))
-        #print(dialog)
+        print(dialog)
         # Get items according to different TASKS.
         if task == INTENTION_TASK:
             # Standardize dialog first.
@@ -192,11 +192,13 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
                     #utter_type in DatasetConfig.utterance_text_recommend_types:
                 utterances.append(TidyUtterance(utter))
                 utterances = utterances[-(context_size + 1):]
+                print('Appending utterances: ', utterances)
                 dialogs.append(copy.copy(utterances))
+                print('# dialogs: ', len(dialogs)) 
                 utter_type = None
             else:
                 sys_responses.append(utter)
-        print('# dialogs: ', len(dialogs)) 
+        
 
     if len(sys_responses) == 3:
         utterances.append(TidyUtterance(sys_responses[0]))
