@@ -77,7 +77,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
             tidy_dialogs.extend(items)
 
     # Save as pickle file.
-    print(tidy_dialogs)
+    print(tidy_dialogs[-1])
     
     #save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
 
@@ -167,7 +167,6 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
 
     for utter in dialog:
         if utter.speaker == USER_SPEAKER:
-            print('USER_SPEAKER')
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
             # The other two responses should be in the candidate context.
@@ -186,7 +185,6 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
             utterances.append(TidyUtterance(utter))
             utter_type = utter.utter_type
         elif utter.speaker == SYS_SPEAKER:
-            print('SYS_SPEAKER')
             # If the type of last user utterance is in utterance_text_types
             # then it's also a simple response
             if utter_type in DatasetConfig.utterance_text_types or \
@@ -202,7 +200,6 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
         utterances.append(TidyUtterance(sys_responses[0]))
         utterances = utterances[-(context_size + 1):]
         dialogs.append(copy.copy(utterances))
-    print(dialogs)
     return dialogs
 
 
