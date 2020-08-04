@@ -52,7 +52,7 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
     for item_idx, dialog in enumerate(dialogs):
         print('Getting items from dialogs {}/{}'.format(
             item_idx + 1, len(dialogs)))
-        print(dialog)
+        #print(dialog)
         # Get items according to different TASKS.
         if task == INTENTION_TASK:
             # Standardize dialog first.
@@ -166,6 +166,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
     context_size = DatasetConfig.dialog_context_size
 
     for utter in dialog:
+        print(utter.speaker, len(sys_response)
         if utter.speaker == USER_SPEAKER:
             # The first utterance of three consecutive system responses must be
             # a simple response, and after getting this simple response dialog.
@@ -187,8 +188,8 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
         elif utter.speaker == SYS_SPEAKER:
             # If the type of last user utterance is in utterance_text_types
             # then it's also a simple response
-            if utter_type in DatasetConfig.utterance_text_types or \
-                    utter_type in DatasetConfig.utterance_text_recommend_types:
+            if utter_type in DatasetConfig.utterance_text_types #or \
+                    #utter_type in DatasetConfig.utterance_text_recommend_types:
                 utterances.append(TidyUtterance(utter))
                 utterances = utterances[-(context_size + 1):]
                 dialogs.append(copy.copy(utterances))
