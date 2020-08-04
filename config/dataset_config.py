@@ -9,9 +9,9 @@ from constant import TASK_STR, MODE_STR
 class DatasetConfig():
     """Dataset configurations."""
 
-    data_directory = '/home/chorseng/data'
-    glove_file = join(data_directory, 'glove.txt')
-    url2img = join(data_directory, 'url2img.txt')
+    data_directory = '/home/chorseng/fashion_data'
+    glove_file = '/home/chorseng/data/glove.txt'
+    url2img = '/home/chorseng/data/url2img.txt'
 
     dialog_directory = join(data_directory, 'dialogs/')
     train_dialog_data_directory = join(dialog_directory, 'train/')
@@ -29,7 +29,7 @@ class DatasetConfig():
 
     image_data_directory = join(data_directory, 'images/')
 
-    dump_dir = '/home/chorseng/dump_dir'
+    dump_dir = '/home/chorseng/magic_simmc2/dump_dir'
     common_raw_data_file = join(dump_dir, 'common_raw_data.pkl')
     knowledge_data_file = join(dump_dir, 'knowledge_data.pkl')
 
