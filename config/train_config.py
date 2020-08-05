@@ -25,8 +25,8 @@ class TextTrainConfig(TrainConfig):
     batch_size = 64
     num_iterations = 10000
     learning_rate = 0.0001
-    print_freq = 100
-    valid_freq = 1000
+    print_freq = 10
+    valid_freq = 100
     patience = 20
     num_data_loader_workers = 5
 
