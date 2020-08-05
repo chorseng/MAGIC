@@ -203,6 +203,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
                 #print('# dialogs: ', len(dialogs)) 
                 utter_type = None
             else:
+                print('Not ERR')
                 sys_responses.append(utter)
         
 
