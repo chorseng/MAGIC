@@ -78,8 +78,8 @@ def generate_tidy_data_file(raw_data: RawData, task: int, mode: int):
 
     # Save as pickle file.
     #print(tidy_dialogs[-1])
-    
-    save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
+    print("Not saving")
+    #save_pkl(tidy_dialogs, 'tidy_dialogs', item_file_name)
 
 
 def standardized_dialog(dialog: Dialog) -> Dialog:
@@ -196,6 +196,8 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
             # then it's also a simple response
             if utter_type in DatasetConfig.utterance_text_types: #or \
                     #utter_type in DatasetConfig.utterance_text_recommend_types:
+                
+                print(utter_type, 'ERR utterance')
                 utterances.append(TidyUtterance(utter))
                 utterances = utterances[-(context_size + 1):]
                 #print('Appending utterances: ', utterances)
@@ -203,7 +205,7 @@ def get_text_task_items(dialog: Dialog) -> List[TidyDialog]:
                 #print('# dialogs: ', len(dialogs)) 
                 utter_type = None
             else:
-                print('Not ERR')
+                print(utter_type, 'Not ERR')
                 sys_responses.append(utter)
         
 
