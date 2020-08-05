@@ -90,7 +90,9 @@ def standardized_dialog(dialog: Dialog) -> Dialog:
 
     Returns:
         Dialog: Standard dialog.
-
+    
+    Only retains last utterance of each speaker if more than 1 utterance consecutively
+    
     """
     std_dialog: Dialog = []
     for utter in dialog:
@@ -111,7 +113,9 @@ def get_init_pad_utters() -> List[TidyUtterance]:
 
     Returns:
         List[TidyUtterance]
-
+    
+    Creates 3 utters that alternative between user-system-user
+    
     """
     utters: List[TidyUtterance] = []
     for i in range(DatasetConfig.dialog_context_size):
@@ -132,7 +136,9 @@ def get_intention_task_items(dialog: Dialog) -> List[TidyDialog]:
 
     Returns:
         List[TidyDialog]: Extracted tidy dialogs.
-
+    
+    Appends utters to utterances, then appends every 3 system-user-system set of utterancses to dialogs 
+    
     """
 
     dialogs: List[TidyDialog] = []
@@ -242,7 +248,9 @@ def get_recommend_task_items(
 
     Returns:
         List[TidyDialog]: Extracted tidy dialogs.
-
+    
+    
+    
     """
 
     dialogs: List[TidyDialog] = []
