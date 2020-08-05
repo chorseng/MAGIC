@@ -416,9 +416,9 @@ class RawData():
         text: List[int] = [vocab.get(word.lower(), UNK_ID) for word in words]
 
         # Images
-        #pos_images: List[int] = [image_url_id.get(img, 0)
-        #                         for img in _pos_images]
-        pos_images: List[str] = _pos_images
+        pos_images: List[int] = [image_url_id.get(img, 0)
+                                 for img in _pos_images]
+        #pos_images: List[str] = _pos_images
         neg_images: List[int] = [image_url_id.get(img, 0)
                                  for img in _neg_images]
 
