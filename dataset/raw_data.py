@@ -406,6 +406,7 @@ class RawData():
         assert speaker != -1
 
         # Convert utterance type into an integer.
+        print(_utter_type)
         utter_type: int = DatasetConfig.utterance_type_dict.get(_utter_type, 0)
         # We don't care the type of system response.
         if speaker == SYS_SPEAKER:
