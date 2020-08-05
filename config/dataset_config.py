@@ -104,6 +104,11 @@ class DatasetConfig():
 
     utterance_type_size = 18
     utterance_type_dict = {
+        'ERR' : 0,
+        'DA': 1
+    }
+        
+    other_utterance_type_dict = {
         'unknown': 0,
         'ask_attribute': 1,
         'buy': 2,
