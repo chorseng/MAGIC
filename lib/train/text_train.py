@@ -201,6 +201,7 @@ def text_train(
                                   text_decoder_config.text_length,
                                   vocab)
                         finished = True
+                        print('No more improvement, min valid loss = ', min_valid_loss)
                         break
         if finished:
             break
