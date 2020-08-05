@@ -249,7 +249,8 @@ def get_recommend_task_items(
     Returns:
         List[TidyDialog]: Extracted tidy dialogs.
     
-    
+    Looks for utter_type = recommend responses by SYS, append utter to sys_response, if SYS response is not a recommend type, append utter to utterances
+    If there is a sys_response, in the next USER utter, extract pos and neg images, then add them in the response, and append the response to utterances
     
     """
 
@@ -329,6 +330,14 @@ def get_knowledge_items(dialog: Dialog, ordinal_number: Dict[int, int],
 
     Returns:
         List[TidyDialog]: Extracted tidy dialogs.
+        
+    For each knowledge subtask separately (based on utter_type), tracks has_shown to see if product is shown, if shown already, creates special utter 
+    based on selected_products instead of pos_images, neg_images is set to [], and append to dialogs as previous utter + this special knowledge based utter.
+    
+    If product not shown yet, checks if it is a recommendation utter_type, if yes, then has_shown is TRUE
+    
+    Knowledge dialogs only come after recommendations. Only concerned with utters/responses from SYSTEM
+    
 
     """
     expected_utter_types = {}
