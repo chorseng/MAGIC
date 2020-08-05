@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 echo "Concatenating files..."
-cat text.out knowledge_styletip.out knowledge_attribute.out knowledge_celebrity.out > all_text.out
+cat text.out > all_text.out
+#cat text.out knowledge_styletip.out knowledge_attribute.out knowledge_celebrity.out > all_text.out
 
 
 echo "Spliting files..."
