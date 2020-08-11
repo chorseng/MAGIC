@@ -27,7 +27,7 @@ class TextTrainConfig(TrainConfig):
     learning_rate = 0.0001
     print_freq = 10
     valid_freq = 10 # 1000
-    patience = 20
+    patience = 30
     num_data_loader_workers = 5
 
 
