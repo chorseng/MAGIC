@@ -134,9 +134,9 @@ class DatasetConfig():
         'switch-synset': 16,
         'user-info': 17
     }
-    utterance_text_types = {0} #2, 5, 8, 10}
-    utterance_text_recommend_types = {1} #7, 12, 13}
-    utterance_recommend_types = {1} #{4, 7, 11, 12, 13}
+    utterance_text_types = {0, 1} #2, 5, 8, 10}
+    utterance_text_recommend_types = {100} #7, 12, 13}
+    utterance_recommend_types = {100} #{4, 7, 11, 12, 13}
     utterance_knowledge_styletip_types = {9}
     utterance_knowledge_celebrity_types = {3}
     utterance_knowledge_attribute_types = {15} #{1, 15}
