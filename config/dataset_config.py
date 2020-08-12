@@ -9,8 +9,8 @@ from constant import TASK_STR, MODE_STR
 class DatasetConfig():
     """Dataset configurations."""
 
-    #data_directory = '/home/chorseng/fashion_data'
-    data_directory = '/home/chorseng/furniture_data'
+    data_directory = '/home/chorseng/fashion_data'
+    #data_directory = '/home/chorseng/furniture_data'
     glove_file = '/home/chorseng/data/glove.txt'
     url2img = '/home/chorseng/data/url2img.txt'
 
@@ -30,7 +30,8 @@ class DatasetConfig():
 
     image_data_directory = join(data_directory, 'images/')
 
-    dump_dir = '/home/chorseng/MAGIC_SIMMC/MAGIC2/MAGIC/dump_dir_furniture'
+    dump_dir = '/home/chorseng/MAGIC_SIMMC/MAGIC2/MAGIC/dump_dir_fashion'
+    #dump_dir = '/home/chorseng/MAGIC_SIMMC/MAGIC2/MAGIC/dump_dir_furniture'
     common_raw_data_file = join(dump_dir, 'common_raw_data.pkl')
     knowledge_data_file = join(dump_dir, 'knowledge_data.pkl')
 
@@ -133,12 +134,12 @@ class DatasetConfig():
         'switch-synset': 16,
         'user-info': 17
     }
-    utterance_text_types = {0, 1} #2, 5, 8, 10}
-    utterance_text_recommend_types = {7, 12, 13}
-    utterance_recommend_types = {4, 7, 11, 12, 13}
+    utterance_text_types = {0} #2, 5, 8, 10}
+    utterance_text_recommend_types = {1} #7, 12, 13}
+    utterance_recommend_types = {1} #{4, 7, 11, 12, 13}
     utterance_knowledge_styletip_types = {9}
     utterance_knowledge_celebrity_types = {3}
-    utterance_knowledge_attribute_types = {1, 15}
+    utterance_knowledge_attribute_types = {15} #{1, 15}
 
     image_size = 64
 
