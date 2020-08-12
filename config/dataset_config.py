@@ -133,7 +133,7 @@ class DatasetConfig():
         'switch-synset': 16,
         'user-info': 17
     }
-    utterance_text_types = {0} #2, 5, 8, 10}
+    utterance_text_types = {0, 1} #2, 5, 8, 10}
     utterance_text_recommend_types = {7, 12, 13}
     utterance_recommend_types = {4, 7, 11, 12, 13}
     utterance_knowledge_styletip_types = {9}
